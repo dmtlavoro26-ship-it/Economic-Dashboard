@@ -25,6 +25,7 @@ import streamlit as st
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple, Any
 import xml.etree.ElementTree as ET
+from modules.sec_data_loader import lookup_cik
 
 try:
     import yfinance as yf
