@@ -411,22 +411,23 @@ with tab_heatmap:
             
             
             # Create treemap
-df_treemap = pd.DataFrame({
-             'sector': [s for s, _ in sorted_data],
-            'return_pct': [r for _, r in sorted_data],
+            # Create treemap
+            df_treemap = pd.DataFrame({
+                'sector': [s for s, _ in sorted_data],
+                'return_pct': [r for _, r in sorted_data],
             })
             df_treemap['parent'] = ""
             df_treemap['size'] = df_treemap['return_pct'].abs() + 1
 
             fig = px.treemap(
-            df_treemap,
-            names='sector',
-            parents='parent',
-            values='size',
-            color='return_pct',
-            color_continuous_scale='RdYlGn',
-            color_continuous_midpoint=0,
-            custom_data=['return_pct'],
+                df_treemap,
+                names='sector',
+                parents='parent',
+                values='size',
+                color='return_pct',
+                color_continuous_scale='RdYlGn',
+                color_continuous_midpoint=0,
+                custom_data=['return_pct'],
             )
 
     
