@@ -417,15 +417,19 @@ with tab_heatmap:
                 color=[r for _, r in sorted_data],
                 color_continuous_scale='RdYlGn',
                 color_continuous_midpoint=0,
+                custom_data=[[r] for _, r in sorted_data],   # <-- riga nuova
             )
+
+    
             
             # Update text to show sector name and return
             fig.update_traces(
-                texttemplate="<b>%{label}</b><br>%{color:.2f}%",
+                texttemplate="<b>%{label}</b><br>%{customdata[0]:.2f}%",
                 textfont=dict(size=14),
                 hovertemplate="<b>%{label}</b><br>Return: %{color:.2f}%<extra></extra>"
             )
             
+
             fig.update_layout(
                 title=f"Sector Performance ({heatmap_period})",
                 template='plotly_dark',
