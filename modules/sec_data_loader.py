@@ -16,6 +16,7 @@ import streamlit as st
 from datetime import datetime, timedelta
 from typing import Optional, List, Dict, Any
 from pathlib import Path
+from modules.sec_data_loader import lookup_cik
 
 # Import DuckDB database functions
 try:
